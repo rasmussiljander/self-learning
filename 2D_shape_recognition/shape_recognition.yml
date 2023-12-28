@@ -1,0 +1,17 @@
+name: shape_recognition
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - pip:
+    - numpy
+    - pandas
+    - pillow
+    - tensorflow
+    - keras
+    - jupyter
+    - pathlib
+    - matplotlib
+    - tqdm
+    - opencv-python
+    - scikit-learn
