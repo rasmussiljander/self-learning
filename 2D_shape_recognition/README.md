@@ -1,14 +1,10 @@
-# This code implements a 2D shape recognition model using machine learning techniques.
-# It takes a dataset of 2D shapes as input and trains a model to classify them into different shape categories.
-# The architecture used for the model is a convolutional neural network (CNN) with multiple layers.
-# The dataset contains images of various 2D shapes such as circles, squares, triangles, and rectangles.
-# Each image is labeled with the corresponding shape category.
-# The model is trained using the labeled dataset to learn the patterns and features of different shapes.
-# Once trained, the model can be used to predict the shape category of new unseen images.
-# The output of the model is the predicted shape category for each input image.
+# 2D shape recognition with basic convolutional nerual nets
 
 # To install the required environment, you can use the provided YAML file.
 # Follow the steps below to set up the environment:
+This projects desings a CNN for basic 2D shape classification from color images.
+It takes a dataset of 2D shapes as input and trains a model to classify them into different shape categories,
+circles, triangles, or squares. 
 
 # 1. Create a new virtual environment (optional but recommended):
 #    $ python -m venv shape_recognition_env
