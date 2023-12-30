@@ -1,4 +1,4 @@
-# 2D shape recognition with basic convolutional nerual nets
+# 2D shape recognition with basic convolutional neural nets
 
 # To install the required environment, you can use the provided YAML file.
 # Follow the steps below to set up the environment:
@@ -35,15 +35,25 @@ No separate validation set was annointed.
 Note that since the dataset was came from a publication revolving around the definition of this dataset itself, the data was already very curated and it ensured that there was wide range of different examples to train on.
 Therefore, no further processing (such as augmentation, rescaling, etc.) was necessary.
 
-# The sample output of the code will display the predicted shape category for each input image in the dataset.
+## Project contents
 
 # Note: Make sure you have the necessary dependencies installed, such as Python, Conda, and the required packages specified in the YAML file.
 """
 This function/class/module does XYZ.
+The project structure is a bare-bones exploration-type of directory, with two notebooks, a `README.md` file, and a `.yml` for creating a virtual environment where to run the project in.
 
 Parameters:
 - param1: Description of param1.
 - param2: Description of param2.
+- `shape_recognition.yml`: File containing the packages for creating the project virtual environment.
+- `data_preprocessing.ipynb`: Notebook for data exploration and processing.
+   - Visualizing shapes, inspecting lables, distributions of shape categories.
+   - Preprocessing for training: loading the images, dropping unwanted data, normalizing pixel values, splitting them into training and test sets
+- `cnn.ipynb`: Notebook for building, training, and evaluating the classification model.
+   - Builds and trains a basic CNN
+   - Evaluates error curves and adds regularization
+   - Evaluation of final model trained with full data
+- `models/cnn.keras`: Saved trained CNN model. Can be used for testing the final model.
 
 Returns:
 Description of the return value(s).
@@ -58,8 +68,14 @@ Output: 3
 # 2D Shape Recognition
 
 This project is an implementation of a machine learning model for 2D shape recognition. It aims to classify different shapes, such as circles, squares, triangles, and rectangles, based on their visual features.
+## Architecture
 
 ## Installation
+The architecture of the model is a very basic CNN with a couple of convolutional layers, max pooling, and final fully connected layers. 
+I have also added a some 20% dropouts to help with overfitting. 
+The optizer is Adam with a 0.001 learning rate, and I use categorical cross-entropy as a typical objective function for classification tasks.
+The model is trained using `keras`.
+For more details, see the `CNN` classes in `cnn.ipynb`.
 
 To run this project, you need to have the following dependencies installed:
 
