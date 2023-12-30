@@ -9,6 +9,12 @@ circles, triangles, or squares.
 # 1. Create a new virtual environment (optional but recommended):
 #    $ python -m venv shape_recognition_env
 #    $ source shape_recognition_env/bin/activate
+## Contents
+- [Data](#data)
+- [File contents](#file-contents)
+- [Architecture](#architecture)
+- [Installation](#installation)
+
 ## Data
 
 # 2. Install the required packages using the provided YAML file:
