@@ -20,6 +20,15 @@ A simple deep learning project, training a convolutional neural network from scr
 An old (2018) project work for a C programming basics course. 
 The project is a simple CLI student register that allows you to add students to a register and dynamically control their information.
 
+### Other projects
+
+**cGANs for MRI modality conversion**
+
+A university group project where we designed a Conditional Generative Adversarial Neural Net (cGAN) for converting the modality (weighting) of MRI brain images. The project was written using `TensorFlow`.
+   - Link to private repo : [link](git@github.com:tonipel/mri-modality-conversion.git)
+   - TensorFlow description of `pix2pix` algorithm that the model is based on: [pix2pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
+   - Conditional Adversarial Nets: [research paper](https://arxiv.org/abs/1611.07004)
+
 
 ### Github Actions
 
