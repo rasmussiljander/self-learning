@@ -1,6 +1,7 @@
 # Self-learning Projects
 
-This repository serves as a hub for miscellaneous self-learning projects related to data and machine learning. Each project is partitioned into its own directory in the repository root. With this, it is easier for me to see the topics that I have already explored and helps me understand what possible gaps I might still have in my understanding.
+This repository serves as a hub for miscellaneous self-learning projects related to data and machine learning. Each project is partitioned into its own directory in the repository root. With this, it is easier for me to see the topics that I have already explored and helps me understand what possible gaps I might still have in my understanding. 
+This repository is not designed to contain production-grade code or even be structured in a way that is conducive for easy clone-and-run code, but as mentioned, is meant for collecting all different projects and learning opportunities into one :)
 
 Below are short explanations of each project.
 
