@@ -67,8 +67,6 @@ To train the model from scratch and run all processes, you should download the d
 2. `cnn.ipynb`
     - If you want to save time, you can skip the training the first model, and instead, train the final model labeled `model1`. Training should take about 1h with no acceleration.
 
-If you simply want to prototype the model, you can just download the `keras` model from `models/cnn.keras`.
-
 When inputting and image (remember to make sure its 200x200x3!) to `model.model.predict()`, the output should be approximately something like this:
 
 > [0.42294613 0.57189    0.00516394]
