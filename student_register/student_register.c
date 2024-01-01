@@ -1,3 +1,15 @@
+/**
+ * A program for managing a student register.
+ *
+ * This program allows users to add students to an array, update their points, print the register,
+ * write the register into a file, and override the register with data from a file.
+ * The program uses a struct to represent each student, which includes their name, student number,
+ * and an array of points. The program also includes various helper functions for manipulating the register.
+ *
+ * @note This program assumes that the maximum length of a student's name is 20 characters,
+ * and that there are 6 exercises for which points can be recorded.
+ * The program dynamically allocates memory for the student array as needed.
+ */
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
