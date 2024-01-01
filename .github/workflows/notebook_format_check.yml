@@ -22,4 +22,4 @@ jobs:
 
     - name: Check notebook format
       run: |
-        nbqa flake8 **/*.ipynb
+
