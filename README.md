@@ -19,3 +19,11 @@ A simple deep learning project, training a convolutional neural network from scr
 
 An old (2018) project work for a C programming basics course. 
 The project is a simple CLI student register that allows you to add students to a register and dynamically control their information.
+
+
+### Github Actions
+
+The Github Actions in this repo are mainly used to practice the use of GH Actions. As there is no production code or model maintenance, there will be no model update, automatization, data loading, or other scheduling. 
+There are however, some simple checks that are run that help learn Actions. 
+There will be more workflows added as needed, but below is the list of current workflows:
+- **Jupyter Notebook linting**: The Python code snippets in all repo notebooks are `flake8`, `black` linted using the package `nbqa`. The workflows are supposed to fail if poorly formatted code is detected. The workflows are triggered on all branches for all commmits and pull request activities. There is no separate scheduling for these workflows.
