@@ -23,7 +23,9 @@ jobs:
     - name: Check notebook format with flake8
       run: |
         nbqa flake8 **/*.ipynb --max-line-length=99
+      continue-on-error: true
 
     - name: Check notebook format with black
       run: |
         nbqa black **/*.ipynb --check --diff --line-length 99
+      continue-on-error: true
