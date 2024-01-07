@@ -3,7 +3,7 @@
 This repository serves as a hub for miscellaneous self-learning projects related to data and machine learning. Each project is partitioned into its own directory in the repository root. With this, it is easier for me to see the topics that I have already explored and helps me understand what possible gaps I might still have in my understanding. 
 This repository is not designed to contain production-grade code or even be structured in a way that is conducive for easy clone-and-run code, but as mentioned, is meant for collecting all different projects and learning opportunities into one :)
 
-Below are short explanations of each project.
+Below are short explanations of each project, but see also [Future Projects](#future-projects) for ideas and plans for future possible projects.
 
 ### 2D Shape Recognition
 
@@ -38,3 +38,117 @@ The Github Actions in this repo are mainly used to practice the use of GH Action
 There are however, some simple checks that are run that help learn Actions. 
 There will be more workflows added as needed, but below is the list of current workflows:
 - **Jupyter Notebook linting**: The Python code snippets in all repo notebooks are `flake8`, `black` linted using the package `nbqa`. The workflows are supposed to fail if poorly formatted code is detected. The workflows are triggered on all branches for all commmits and pull request activities. There is no separate scheduling for these workflows.
+
+
+
+
+## Future Projects
+
+Naturally, theres only so any hours in a day, and there's no way for me to have time to complete all little cool projects that come to mind. Therefore, below are listed some project plans that could be really interesting and useful to do. 
+
+
+### ML Model + API endpoint 
+
+
+Hosting some model on with an endpoint. show end-to-end process, including preprocessing, modeling, api, etc.
+
+- data exploration notebooks
+- python code for productization
+- API + API documentation
+
+#### Data
+
+- description where from
+- how to load it
+- Use exploration to provide guidelines for preprocessing.
+- Will be uploaded/maintained in an S3 bucket, if pricing free --> check the pricing when you get to this.
+
+#### Model
+
+The type of model obviously depends on the problem definition, but from an API-design point-of-view, a good option would be a model, where we can achieve insights with minimal API input. For example, image classifiers are a bit challenging for simple API project, as they require input images to be predicted. In other words, models for which the input features space can be efficiently given should be favored.
+
+Options:
+- [Residential area clusters] (#finnish-residential-area-analysis-and-clustering) (classification)
+- Football game outcode predictions (classification)
+- Forecasting tourism in Helsinki (time series forecasting)
+- Regression tasks for any domain: Price, size, quantity, time between events, sucess, probability of an event occuring, etc.
+
+
+#### Architecture
+
+- All written in Python
+- Model: use of packages depending on architecture (+ comparison of options)
+- API: either FastAPi or Flask, probably FastAPI better of simple API
+
+
+
+Below is a visualization of the approximate file structure that the project should have
+```
+├── data 
+│ ├── raw
+│ └── processed
+├── notebooks
+│ ├── data_exploration
+│ └── model_prototyping
+├── src
+│ ├── preprocessing
+│ ├── training
+│ ├── validation
+│ └── utils
+├── app
+│ ├── openapi_schema.yml
+│ ├── endpoint
+│ └── utils
+├── models
+├── reports
+├── environment.yml
+├── README.md
+```
+
+
+## Finnish residential area analysis and clustering
+
+Tilastokeskus, HKI Open API offer demographic data + time-series about Finnish residential areas ([link](https://www.avoindata.fi/data/en_GB/dataset/helsingin-seudun-aluesarjat-tilastotietokannan-tiedot-paikkatietona))
+--> would it be possible to group these areas together by profile? Find distinct differences, factors that make them unique? Is it possible to find some simple-language profile names for each, e.g. `Family-friendly`, `Fast-growing`, etc.? 
+
+This would require quite a lot of exploration of the data and what is available. The modeling could be done with Python, and maybe it would be a good idea to start off with a simple unsupervised approach such as KNN or equivalent. This could be also coupled with dimension reduction to try to help the modeling a bit.
+
+This would probably mostly be done with Jupyter Notebooks, but if interesting models are found, some endpoints/etc. could be designed. Also, since most of the data is provided with time-series, it would be interesting to introduce some temporal aspect as well --> how have districts changed over time? Can some profile-change be predicted in the future?
+
+### Outcomes
+
+This project was several possible outcomes, and with closer planning and discovery the scope can be specified, but below are possible options
+
+1. **Elaborate data exploration** : Really just get to know the data well. Find interesting things that you didn't imagine you would find!
+2. Area profile classifier: For a user-input of a region, a model will output a profile associated with that region.
+3. Area profile insights: This is the most elaborate and advanced option of this project. For an area input, the user will not only receive an area profile, but a report of insights associated with that region and profile. This could include Top 3 similar regions, variables that characterize that region, its history, and visualizations on a map.
+
+
+## Data validation and automation pipelines
+
+Pipelines for validating and ensuring that data is loaded and run in a correct way
+This can be done in several ways
+- Airflow + Great Expectations
+- `dbt`
+
+The important is finding some interesting dataset with which you could do this.
+
+
+## Other possible project ideas:
+
+- **LLM models**: There are an infinite different possibilities that LLMs can nowadays do, but here's a couple of things that could be interesting to test out.
+   - Time series analysis with LLMs
+      - There is a parallel between sequential relationships of time series and langauge sentences. Therefore I imagine that LLMs could work quite well with time series data as well, and in fact, there already exists some papers about the topic: [Repo](https://github.com/liaoyuhua/LLM4TS)
+   - Data Science Job Application letter analysis
+      - Perhaps LLMs could be tought to a) pick up mentions of hard skills; b) understand semantics, mood, and tone. This could help better understand what kind of a person the applicant is, and how they could fit into the team in question. 
+      - It would be interesting to also see if the model could learn to valuate different projects and experience, and be able to tell if some features differentiate the applicant better. 
+      - This biggest issue would probably be the context that the model would need to learn, as well as the quantification of this applicant value: what makes this person particularly valuable?
+- Data Exploration + modeling with `R`
+   - Show that you actually have experience with `R`.
+   - For example, one that is interesting to me is tourism data in Finland: has tourism increased in Finland, what makes people want to come to Finland?
+      - Link to data: [link](https://www.avoindata.fi/data/en_GB/dataset/visit-finland-matkailijamittari/resource/2c326fd2-3437-4d95-a71d-cc713f095e69?view_id=36b0485a-8e59-484a-98e5-9be35085d881)
+   - Other intersting dataset: [Weather warnings in Finland](https://www.ilmatieteenlaitos.fi/varoitusten-latauspalvelun-pikaohje)
+      - How is climate change happening in Finland? Have weather phenomena gotten more extreme over the past 20 years? What can we expect to happen?
+
+
+
