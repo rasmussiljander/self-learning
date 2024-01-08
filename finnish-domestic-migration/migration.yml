@@ -1,0 +1,16 @@
+name: migration
+channels:
+  - defaults
+dependencies:
+  - python==3.12.0
+  - pip:
+      - geopandas==0.14.2
+      - jupyter==1.0.0
+      - matplotlib==3.8.2
+      - networkx==3.2.1
+      - numpy==1.26.3
+      - pandas==2.1.4
+      - pathlib==1.0.1
+      - seaborn==0.13.1 
+
+
