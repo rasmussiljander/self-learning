@@ -209,6 +209,7 @@ def data_to_network(year, directed, edge_attr, percent, viz_bc):
 def visualize_network(
     network, year, directed, viz_bc, df, edge_attr, netto, percent, node_colors=None
 ):
+    """Visualize the network."""
     fig = plt.figure(1, figsize=(10, 10))
     cmap = plt.get_cmap("Blues")
     vmin = -0.01
@@ -379,6 +380,7 @@ def main():
 
 
 def visualize_map(network, year, totnet):
+    """Visualizes the network on the map"""
     data = geopandas.read_file("./finland_map/finland/kunta4500k_2022Polygon.shp")
 
     for i in range(0, len(data)):
