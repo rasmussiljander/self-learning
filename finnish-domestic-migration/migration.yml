@@ -11,6 +11,9 @@ dependencies:
       - numpy==1.26.3
       - pandas==2.1.4
       - pathlib==1.0.1
-      - seaborn==0.13.1 
+      - seaborn==0.13.1
+      - nbqa==1.7.1
+      - black==23.12.1
+      - flake8==7.0.0
 
 
