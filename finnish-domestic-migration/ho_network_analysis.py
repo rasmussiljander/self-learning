@@ -18,8 +18,8 @@ MOBILITY_BY_YEAR_PATH = os.path.join("data", "mobility_by_year")
 
 def betweenness_centralities():
     """
-    Loop all of the biggest municipalities and calculate the betweenness centralities every five years
-    for each municipality and plot them.
+    Loop all of the biggest municipalities and calculate the betweenness centralities every five
+    years for each municipality and plot them.
 
     """
 
@@ -52,8 +52,6 @@ def betweenness_centralities():
 
         print(node)
         all_bc.append(temp)
-
-    fig1 = plt.figure(1)
 
     for i in range(10):
         plt.plot(years2, all_bc[i], label=ten_largest[i], marker=".")
@@ -138,16 +136,17 @@ def data_to_network(year, directed, edge_attr, percent, viz_bc):
     - Changes column names to more suitable ones.
 
     """
-
+    # fmt: off
     data = pd.read_csv(
-        "/Users/elsaollikainen/Desktop/hands_on_network_analysis/hands-on-network-analysis/data/mobility_by_year/"
-        + year
-        + ".csv",
+        "/Users/elsaollikainen/Desktop/hands_on_network_analysis/hands-on-network-analysis/data/mobility_by_year/" + # NOQA
+        year + ".csv",
         delimiter=",",
         encoding="latin-1",
     )
+    # fmt: on
 
-    # if year == '2020':     # 2020 the file structure is different than the other files, it has two rows less
+    # 2020 the file structure is different than the other files, it has two rows less
+    # if year == '2020':
     # N = 0
     # else:
     # N = 2
@@ -359,7 +358,8 @@ def main():
     edge_attr = (
         "Total"  # Select if using 'Total' or 'log' which is logarithm of Total values
     )
-    viz_bc = False  # Select if you want to visualize node colors based on their betweenness centralities
+    # Select if you want to visualize node colors based on their betweenness centralities
+    viz_bc = False
     """JOS viz_bc True, edge_attr = 'log', muuten ei toimi ! """
 
     percent = 0.01  # How many percent of the links are evaluated
@@ -454,7 +454,7 @@ def get_node_colors_from_demographics(demographics, column, nodes):
 # %%
 
 
-def main():
+def main():  # NOQA
     """DEFINE THESE PARAMETERS TO MAKE DIFFERENT NETWORKS"""
 
     year = "2000"  # Select the year to visualize
@@ -462,7 +462,8 @@ def main():
     edge_attr = (
         "Total"  # Select if using 'Total' or 'log' which is logarithm of Total values
     )
-    viz_bc = False  # Select if you want to visualize node colors based on their betweenness centralities
+    # Select if you want to visualize node colors based on their betweenness centralities
+    viz_bc = False
     """JOS viz_bc True, edge_attr = 'log', muuten ei toimi ! """
 
     percent = 0.005  # How many percent of the links are evaluated
@@ -509,7 +510,7 @@ def main():
         node_colors=node_colors_dict,
     )
 
-    if netto == True:
+    if netto:
         visualize_map(network, year, "netto")
     else:
         if edge_attr == "Total":

@@ -18,19 +18,13 @@ def get_top_municipalities_from_demopgraphics(
     """
     data_2019 = data[["Alue 2020", "Tiedot", "2019"]]
 
-    populations_index = (
-        data_2019["Tiedot"] == "Väkiluku"
-    )  # Fetch rows that contain population
+    populations_index = data_2019["Tiedot"] == "Väkiluku"  # Fetch rows that contain population
     populations = data_2019[populations_index]
 
     populations = populations.drop(columns="Tiedot")  # Cleaning and renaming cols
-    populations = populations.rename(
-        columns={"Alue 2020": "municipality", "2019": "population"}
-    )
+    populations = populations.rename(columns={"Alue 2020": "municipality", "2019": "population"})
 
-    populations["population"] = populations["population"].astype(
-        int
-    )  # type casting for sorting
+    populations["population"] = populations["population"].astype(int)  # type casting for sorting
     populations_sorted = populations.sort_values(
         by="population", ascending=False, ignore_index=True
     )
@@ -52,9 +46,7 @@ def get_top_municipalities_from_demopgraphics(
     rest_of_finland["municipality"] = "Rest of Finland"
     rest_of_finland.population.sum()
 
-    top_populations = pd.concat([top_populations, rest_of_finland]).reset_index(
-        drop=True
-    )
+    top_populations = pd.concat([top_populations, rest_of_finland]).reset_index(drop=True)
 
     return top_populations
 
@@ -103,9 +95,7 @@ def aggregate_data(file_paths: list, municipalities_keep: pd.DataFrame):
         arrival = aggregate_counts(data, municipalities_keep, column="Area of arrival")
         arrival.index = arrival.index.str.replace("Arrival - ", "")
 
-        departure = aggregate_counts(
-            data, municipalities_keep, column="Area of departure"
-        )
+        departure = aggregate_counts(data, municipalities_keep, column="Area of departure")
         departure.index = arrival.index.str.replace("Departure - ", "")
 
         df_mapping = {
