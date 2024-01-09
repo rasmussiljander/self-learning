@@ -29,3 +29,13 @@ jobs:
       run: |
         nbqa black **/*.ipynb --check --diff --line-length 99
       continue-on-error: true
+
+    - name: Check python code format with flake8
+      run: |
+        nbqa flake8 **/*.py --max-line-length=99
+      continue-on-error: true
+
+    - name: Check python code format with black
+      run: |
+        nbqa black **/*.py --check --diff --line-length 99
+      continue-on-error: true
