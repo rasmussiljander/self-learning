@@ -32,10 +32,14 @@ jobs:
 
     - name: Check python code format with flake8
       run: |
-        nbqa flake8 **/*.py --max-line-length=99
+        flake8 . --count --show-source --statistics --ignore=W605,W503,E501
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --statistics
       continue-on-error: true
 
     - name: Check python code format with black
       run: |
-        nbqa black **/*.py --check --diff --line-length 99
+        conda install -c conda-forge black=20.8b1
+        black . --check --diff --target-version py37 --line-length 99
       continue-on-error: true
+    
