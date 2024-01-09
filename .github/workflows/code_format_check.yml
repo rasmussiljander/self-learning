@@ -43,3 +43,7 @@ jobs:
         black . --check --diff --target-version py37 --line-length 99
       continue-on-error: true
     
+    - name: Check documentation coverage with Interrogate
+      run: |
+        conda install -c conda-forge interrogate
+        interrogate . -c pyproject.toml
