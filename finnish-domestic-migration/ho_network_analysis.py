@@ -355,9 +355,7 @@ def main():
 
     year = "2020"  # Select the year to visualize
     directed = False  # Select if the network is directed or not
-    edge_attr = (
-        "Total"  # Select if using 'Total' or 'log' which is logarithm of Total values
-    )
+    edge_attr = "Total"  # Select if using 'Total' or 'log' which is logarithm of Total values
     # Select if you want to visualize node colors based on their betweenness centralities
     viz_bc = False
     """JOS viz_bc True, edge_attr = 'log', muuten ei toimi ! """
@@ -372,9 +370,7 @@ def main():
     network, df = data_to_network(year, directed, edge_attr, percent, viz_bc)
 
     if max_st:
-        network = nx.algorithms.tree.mst.maximum_spanning_tree(
-            network, weight=edge_attr
-        )
+        network = nx.algorithms.tree.mst.maximum_spanning_tree(network, weight=edge_attr)
 
     if netto:
         network = netto_network(network, df, percent)
@@ -394,9 +390,7 @@ def visualize_map(network, year, totnet):
     pos = {}
 
     for i in range(0, len(data)):
-        node_info = data.loc[
-            [i], ["nimi", "namn", "centroid_lon", "centroid_lat"]
-        ].values.tolist()
+        node_info = data.loc[[i], ["nimi", "namn", "centroid_lon", "centroid_lat"]].values.tolist()
         name, namn, lon, lat = (
             node_info[0][0],
             node_info[0][1],
@@ -421,9 +415,7 @@ def visualize_map(network, year, totnet):
     fig = plt.figure(1)
     ax = fig.add_subplot(111)
     # ax = data["geometry"].boundary.plot(figsize=(20, 16))
-    ax = data["geometry"].plot(
-        edgecolor="#FFCC99", facecolor="#FFB266", figsize=(20, 16)
-    )
+    ax = data["geometry"].plot(edgecolor="#FFCC99", facecolor="#FFB266", figsize=(20, 16))
     nx.draw(
         network,
         pos=pos,
@@ -459,9 +451,7 @@ def main():  # NOQA
 
     year = "2000"  # Select the year to visualize
     directed = False  # Select if the network is directed or not
-    edge_attr = (
-        "Total"  # Select if using 'Total' or 'log' which is logarithm of Total values
-    )
+    edge_attr = "Total"  # Select if using 'Total' or 'log' which is logarithm of Total values
     # Select if you want to visualize node colors based on their betweenness centralities
     viz_bc = False
     """JOS viz_bc True, edge_attr = 'log', muuten ei toimi ! """
@@ -475,25 +465,19 @@ def main():  # NOQA
 
     network, df = data_to_network(year, directed, edge_attr, percent, viz_bc)
 
-    demographic_to_color_by = (
-        "0-30y"  # Name of demographic data column demographics.csv
-    )
+    demographic_to_color_by = "0-30y"  # Name of demographic data column demographics.csv
     # demographic_to_color_by = "log-Median income 2020"
     # demographic_to_color_by = "Percentage of males 2020"
     node_colors_dict = None
     if demographic_to_color_by is not None:
         demographics = pd.read_csv("data/demographics.csv")
-        demographics["log-Median income 2020"] = np.log(
-            demographics["Median income 2020"]
-        )
+        demographics["log-Median income 2020"] = np.log(demographics["Median income 2020"])
         node_colors_dict = get_node_colors_from_demographics(
             demographics, demographic_to_color_by, list(network.nodes())
         )
 
     if max_st:
-        network = nx.algorithms.tree.mst.maximum_spanning_tree(
-            network, weight=edge_attr
-        )
+        network = nx.algorithms.tree.mst.maximum_spanning_tree(network, weight=edge_attr)
 
     if netto:
         network = netto_network(network, df, percent)
