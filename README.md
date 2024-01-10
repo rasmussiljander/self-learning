@@ -69,6 +69,18 @@ A human language engineering group project that tackled the SemEval 2018 Task 10
 - Task description: [link](https://aclanthology.org/S18-1117/)
 
 
+#### Modeling NBA Shooting Percentages
+
+Project work a course Bayesian Data Analysis. Uses Bayesian probabilistic modeling tools, implemented in R and Stan, to construct models for estimating changes in NBA basketball shot success likelihoods, depending on shot distance and shot type. The model was a Bayesian Binomial-Logit model. The report consists of the follwing essential sections:
+
+1. Introduction of the problem, data, and mathematical model
+2. Stan model code
+3. Model execution and convergence diagnostics (Rhat, ESS)
+4. Posterior predictive checks
+5. Model Comparison (PSIS-LOO, Pareto k-values)
+6. Predictive performance assessment and sensitivity analysis
+
+Only the report (written with RMarkdown in RStudio) is included, found in the folder [reports/bayesian_basketball_model](https://github.com/self-learning/tree/main/reports/bayesian_basketball_model/). The source code available upon request.
 
 
 ### Github Actions
