@@ -89,6 +89,7 @@ The Github Actions in this repo are mainly used to practice the use of GH Action
 There are however, some simple checks that are run that help learn Actions. 
 There will be more workflows added as needed, but below is the list of current workflows:
 - **Jupyter Notebook linting**: The Python code snippets in all repo notebooks are `flake8`, `black` linted using the package `nbqa`. The workflows are supposed to fail if poorly formatted code is detected. The workflows are triggered on all branches for all commmits and pull request activities. There is no separate scheduling for these workflows.
+- **Python Documentation**: The existence of Python docstrings in functions and classes is checked by the package `interrogate`. It fails the check if less than 80% of the code base is documented. It does not evaluate the quality of the docs, but focuses on the simple existence of docstring - the quality is left as resposibility of the developer!
 
 
 
