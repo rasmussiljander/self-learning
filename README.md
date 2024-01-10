@@ -13,6 +13,7 @@ To ease navigation, all projects are collected below in a table showing their th
 |[Finnish Domestic Migration Analysis](https://github.com/rasmussiljander/self-learning/tree/main/finnish-domestic-migration) | Networks + Data-analysis| Python + Jupyter Notebooks| Yes | 2022 |
 |[Forecasting Food Orders](https://github.com/rasmussiljander/self-learning/tree/main/food_orders_forecasting) | Time-series Forecasting | Jupyter Notebooks| Yes | 2021 |
 |[cGANs for MRI modality conversion](#cgans-for-mri-modality-conversion) | Image-to-Image translation with DL | Python | No | 2021 |
+|[[Bachelor's Thesis] Non-linear regression for autoantibody analysis in type 1 diabetes](#bachelors-thesis-2020-non-linear-regression-for-autoantibody-analysis-in-type-1-diabetes) | Non-linear Regression | Python + R | No | 2020 |
 |[Bayesian Binomial-Logit models for basketball shot likelihoods](#modeling-nba-shooting-percentages) | Bayesian Data Analysis | R + Stan (Rmd) | No | 2020 |
 |[Herd Simulation](https://github.com/rasmussiljander/self-learning/tree/main/food_orders_forecasting) | Physics Animation | Python | Yes | 2019 |
 |[Student Register](https://github.com/rasmussiljander/self-learning/tree/main/student_register) | Beginner Project | C | Yes | 2019 |
@@ -51,6 +52,23 @@ An old (2018) project work for a C programming basics course.
 The project is a simple CLI student register that allows you to add students to a register and dynamically control their information.
 
 ### Other projects
+
+#### Bachelor's Thesis (2020): Non-linear regression for autoantibody analysis in type 1 diabetes
+
+I completed my Bachelor's Thesis (B.Sc.) in 2020 with the thesis title of 
+
+```
+Non-linear regression methods in open-source platforms for autoantibody analysis in type 1 diabetes
+```
+
+Basically I investigated if I could replicate a "4-parameter Logistic Regression" algorithm with open-source software.
+This could have helped the acceleration of digitalization in the research group that I completed the thesis in. 
+I actually wrote the algorithm with both R and Python: I first wrote the algorithm in R as at the time I was more experienced with it, but later replicated and improved the algorithm in Python in order to make a thesis out of it. 
+Unfortunately the code is not available to share, but the full thesis is available for reading in [reports/bsc_thesis_4pl_regression.pdf](https://github.com/self-learning/tree/main/reports/bsc_thesis_4pl_regression.pdf)
+
+Below is an part from the abstract:
+
+*tGADA96-585 can be analyzed with a four-parameter logistic (4PL) regression model. Analysis is usually done with specialized software, but due to the availability of open-source (OS) platforms, it is relevant to evaluate whether OS programs can replicate the analysis. Using details from the MultiCalcTM (Wallac OY, Turku, Finland) product manual, a novel Python program was built and evaluated.*
 
 #### cGANs for MRI modality conversion
 
