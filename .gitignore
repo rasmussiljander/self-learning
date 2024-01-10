@@ -1,6 +1,9 @@
 .DS_Store
+__pycache__/
 
 **/data/**
 **/*.zip
 **/models/**
 food_orders/**
+**/finland/kunta**
+**/finland/**wfs**
