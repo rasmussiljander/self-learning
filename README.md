@@ -22,6 +22,12 @@ An analysis into domestic migration flows inside Finland. The project was done a
 
 A very simple SARIMA project that was completed as a task part of a summer internship application in 2021. The project was completed locally but migrated to this repo in 2024. 
 
+
+### Herd Simulation
+
+A fully designed herd simulation program (2019), that executes a random herd-type visual simulation of self-driving 2D cars, using the package `PyQt5`. More information about this old `Python` can be found (in Finnish) in the `docs/` directory. This was also added in the `reports/` directory that contains miscellaneous older school project reports.
+
+
 ### Student Register
 
 `student_register/`
