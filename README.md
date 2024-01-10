@@ -31,12 +31,23 @@ The project is a simple CLI student register that allows you to add students to 
 
 ### Other projects
 
-**cGANs for MRI modality conversion**
+#### cGANs for MRI modality conversion
 
 A university group project where we designed a Conditional Generative Adversarial Neural Net (cGAN) for converting the modality (weighting) of MRI brain images. The project was written using `TensorFlow`.
    - Link to private repo : [link](https://github.com/tonipel/mri-modality-conversion)
    - TensorFlow description of `pix2pix` algorithm that the model is based on: [pix2pix](https://www.tensorflow.org/tutorials/generative/pix2pix)
    - Conditional Adversarial Nets: [research paper](https://arxiv.org/abs/1611.07004)
+
+
+#### Capturing Discriminative Attributes
+
+A human language engineering group project that tackled the SemEval 2018 Task 10. The task is about being able to model discriminative features between two words, or in other words, be able to model what makes them different from each other. Our approach was testing combining GloVe embeddings with XGBoost classifiers, support vector machines, and Multi-layer perceptrons to be able to predict whether two words are different from each other or not. The project was written with `Python`.
+
+- Project Report: [reports/Report_DiscAttDect.pdf](https://github.com/luciaurcelay/Capturing-Discriminative-Attributes/eports/Report_DiscAttDect.pdf)
+- Private Repo: [link](https://github.com/luciaurcelay/Capturing-Discriminative-Attributes)
+- Task description: [link](https://aclanthology.org/S18-1117/)
+
+
 
 
 ### Github Actions
