@@ -2,7 +2,7 @@
 
 This is a school group work project from 2022 that investigated domestic migration flows in Finland, especially during 2020. This project was completed as part of a network analysis course. The goal of the investigation was to be able to draw migration networks on a Finnish map, and show which are the largest migration links inside Finland in which direction people are moving in 2020. 
 
-The data was downloaded from Statistics Finland open data database.
+The data was downloaded from Statistics Finland open data database. The networks are built and analyzed with `networkx`, geospatial data handled with `geopandas`, and visualizations, done with the standard libraries `matplotlib` and `seaborn`. Data wrangling was handled by `pandas`.
 
 **Outcomes:**
 
