@@ -11,6 +11,13 @@ Below are short explanations of each project.
 
 A simple deep learning project, training a convolutional neural network from scratch to classify images into circles, squares, or triangles. The project serves as a quick review of CNNs and helps me refresh what I already learned in school and have something similar that I have implemented in my own.
 
+### Finnish Domestic Migration Analysis
+`finnish-domestic-migration/`
+
+An analysis into domestic migration flows inside Finland. The project was done as part of a network analysis course. The progress report in `docs/` has interesting images about various migration insights in Finland over 2020 and throughout the past 40 years.
+
+
+
 ### Food Orders Forecasting
 
 A very simple SARIMA project that was completed as a task part of a summer internship application in 2021. The project was completed locally but migrated to this repo in 2024. 
