@@ -9,16 +9,17 @@ from vehicle import Vehicle
 from vehicle_world import VehicleWorld
 from car_info_file_error import CarInfoFileError
 
-"""This is where the entire program is run. First we must read a csv file where the information for the cars are set up,
-in the order of "number of cars, car size, Force to mass ratio (FM) range, location ranges, max speed range. There are 
-restrictions that are checked (come up with empirical experimentation):
-    1 <= number of cars <= 15
-    30 <= car size <= 50
-    finish location cannot be in the center of the window
-    1 <= max speed <= 2.5"""
-
 
 def load_game(filename):
+    """
+    This is where the entire program is run. First we must read a csv file where the information for the cars are set up,
+    in the order of "number of cars, car size, Force to mass ratio (FM) range, location ranges, max speed range. There are
+    restrictions that are checked (come up with empirical experimentation):
+        1 <= number of cars <= 15
+        30 <= car size <= 50
+        finish location cannot be in the center of the window
+        1 <= max speed <= 2.5
+    """
     world = VehicleWorld()  # creating a test world
 
     try:
@@ -68,12 +69,11 @@ def load_game(filename):
     sys.exit(app.exec())
 
 
-"""CHECK PATH LENGTH:
-    Calculates the length of the path, a.k.a the distance between the start point and the finish point. Parameters as a 
-    list (e.g. start = [start x coordinate, start y coordinate])"""
-
-
 def check_path_length(start, finish):
+    """
+    Calculates the length of the path, a.k.a the distance between the start point and the finish point. Parameters as a
+    list (e.g. start = [start x coordinate, start y coordinate])
+    """
     start_v = Vector(start[0], start[1])  # make list values into vectors
     finish_v = Vector(finish[0], finish[1])
 

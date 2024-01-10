@@ -6,6 +6,8 @@ from vehicle_graphics_item import VehicleGraphicsItem
 
 
 class GUI(QtWidgets.QMainWindow):
+    """GUI Class. Inherits `QtWidgets.QMainWindow` and creates a window for the user to see the simulation."""
+
     def __init__(self, world):
         super().__init__()
 
@@ -21,9 +23,8 @@ class GUI(QtWidgets.QMainWindow):
         )  # Timer event: Important for creating movement! Essential in setting up the
         # Repainting and update-event'''
 
-    """Builds window for viewer to see."""
-
     def show_window(self):
+        """Builds window for viewer to see."""
         self.setCentralWidget(QtWidgets.QWidget())
         self.horizontal = QtWidgets.QHBoxLayout()
         self.setWindowTitle("Traffic Simulation")  # creating window
@@ -41,25 +42,22 @@ class GUI(QtWidgets.QMainWindow):
         self.view.show()
         self.horizontal.addWidget(self.view)
 
-    """Adding exit button for easy termination of program"""
-
     def exit_button(self):
+        """Adding exit button for easy termination of program"""
         self.exit_btn = QtWidgets.QPushButton("Press to exit")
         self.horizontal.addWidget(self.exit_btn)
 
         self.exit_btn.clicked.connect(self.close)
 
-    """Adding all vehicle graphics items (created in class VehicleGraphicsItem)"""
-
     def add_vehicle_graphics_item(self):
+        """Adding all vehicle graphics items (created in class VehicleGraphicsItem)"""
         vehicle_list = self.world.get_vehicles()
         for vehicle in vehicle_list:
             vehicle_graphics = VehicleGraphicsItem(vehicle)
             self.scene.addItem(vehicle_graphics)
 
-    """methods for updating vehicle position, direction, etc. All methods written in graphicsItem class."""
-
     def update_vehicles(self):
+        """methods for updating vehicle position, direction, etc. All methods written in graphicsItem class."""
         vehicles = self.scene.items()
         for i in range(len(vehicles)):
             graphics__veh = vehicles[i]
@@ -69,9 +67,8 @@ class GUI(QtWidgets.QMainWindow):
 
         self.update()
 
-    """Call for repainting the world and showing movement in the vehicles"""
-
     def timerEvent(self, event):
+        """Call for repainting the world and showing movement in the vehicles"""
         if event.timerId() == self.timer.timerId():
             self.update_vehicles()
         else:
