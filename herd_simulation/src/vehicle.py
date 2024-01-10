@@ -1,17 +1,16 @@
-'''Vehicle: 
+"""Vehicle: 
         A vehicle has mass, size, and steering attributes, it is set in a world and has a very real location. These are all
         initialliy set in the __init__method.
         
         The vehicle also needs movement patterns that are essential in deriving it as autonomous object. These include seek,
-        arrive, path following, obstacle avoidance, etc.'''
+        arrive, path following, obstacle avoidance, etc."""
 
 from vector import Vector
 from path import Path
 
+
 class Vehicle:
-
-    def __init__(self, max_force_to_mass, max_speed, direction,path,size,world):
-
+    def __init__(self, max_force_to_mass, max_speed, direction, path, size, world):
         self.fm = max_force_to_mass
         self.max_speed = max_speed
         self.direction = direction
@@ -25,9 +24,7 @@ class Vehicle:
         self.world = world
         self.velocity = self.direction.set_magn(self.max_speed)
 
-
-
-    '''Arrive method:
+    """Arrive method:
     a) Vehicle tries to get to its finish point as quickly as possible --> target location is set.
     
         target = finish.
@@ -45,26 +42,25 @@ class Vehicle:
     be mapped as max speed/map_distance * distance to point:
         speed = (max_speed/map_distance)* distance , map_distance = 150
         
-     '''
+     """
 
     def arrive(self):
-
-        #a)
+        # a)
         target = Vector(self.target[0], self.target[1])
         loc = Vector(self.x, self.y)
 
-        #b)
+        # b)
         desired = target.sub(loc)
-        distance = desired.get_magn()           #finding distance from location to finish
+        distance = desired.get_magn()  # finding distance from location to finish
         desired = desired.set_magn(self.max_speed)
 
         steer = desired.sub(self.velocity)
         steer = self.get_steer_vector()
 
-        #c)
+        # c)
         self.velocity = self.velocity.add(steer)
 
-        #d)
+        # d)
         speed = self.max_speed - (self.max_speed / 150) * (150 - distance)
         self.velocity = self.velocity.set_magn(speed)
 
@@ -77,11 +73,10 @@ class Vehicle:
         self.direction = v0
         return self.direction
 
-    '''Seek: Vehicle tries to get to target location.
-        Same logic as in arrive (below) but there is no mapping of velocity '''
+    """Seek: Vehicle tries to get to target location.
+        Same logic as in arrive (below) but there is no mapping of velocity """
 
     def seek(self, destination):
-
         target = Vector(destination[0], destination[1])
         loc = Vector(self.x, self.y)
 
@@ -103,9 +98,8 @@ class Vehicle:
         v0 = self.velocity.get_unit()
         self.direction = v0
 
-
-    '''GET STEER VECTOR
-    Returns the steer vector that is applied to the car.'''
+    """GET STEER VECTOR
+    Returns the steer vector that is applied to the car."""
 
     def get_steer_vector(self):
         target = Vector(self.target[0], self.target[1])
@@ -117,12 +111,10 @@ class Vehicle:
         steer = desired.sub(self.velocity)
         return steer.set_limit(self.fm)
 
-
-    '''CHECK DANGER
-    Checking if the vehicle is about to crash into another car.'''
+    """CHECK DANGER
+    Checking if the vehicle is about to crash into another car."""
 
     def check_danger(self):
-
         list = self.world.get_vehicles()
         index = list.index(self)
         self_location = Vector(self.x, self.y)
@@ -139,32 +131,29 @@ class Vehicle:
 
         return danger_coors
 
-    '''ESCAPE
-    Method for calculating escape coordinates and seeking them.'''
+    """ESCAPE
+    Method for calculating escape coordinates and seeking them."""
 
-    def escape(self,coors):
-
-        sum_loc = Vector(0,0)
+    def escape(self, coors):
+        sum_loc = Vector(0, 0)
         self_location = Vector(self.x, self.y)
         for i in range(len(coors)):
             sum_loc = sum_loc.add(coors[i])
 
-        avg_loc = sum_loc.mult(1/len(coors))
+        avg_loc = sum_loc.mult(1 / len(coors))
         escape_dir = self_location.sub(avg_loc).get_unit()
         escape_loc = self_location.add(escape_dir.mult(50))
         self.seek([escape_loc.x, escape_loc.y])
 
-
-    '''PATH FOLLOWING
-    Method for the whole movement pattern of the vehicle. Two steps: a) Find location in relation to path b) act accrodingly'''
+    """PATH FOLLOWING
+    Method for the whole movement pattern of the vehicle. Two steps: a) Find location in relation to path b) act accrodingly"""
 
     def path_following(self):
-
-        #a)
-        self.path = Path(self.sf[0], self.sf[1])    #Making path vector (from start to finish)'''
+        # a)
+        self.path = Path(self.sf[0], self.sf[1])  # Making path vector (from start to finish)'''
         loc = Vector(self.x, self.y)
 
-        #b)
+        # b)
         dis = self.path.finish.sub(loc)
 
         if dis.get_magn() <= 150:
