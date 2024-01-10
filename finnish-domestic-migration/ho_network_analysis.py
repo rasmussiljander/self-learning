@@ -18,8 +18,8 @@ MOBILITY_BY_YEAR_PATH = os.path.join("data", "mobility_by_year")
 
 def betweenness_centralities():
     """
-    Loop all of the biggest municipalities and calculate the betweenness centralities every five years
-    for each municipality and plot them.
+    Loop all of the biggest municipalities and calculate the betweenness centralities every five
+    years for each municipality and plot them.
 
     """
 
@@ -52,8 +52,6 @@ def betweenness_centralities():
 
         print(node)
         all_bc.append(temp)
-
-    fig1 = plt.figure(1)
 
     for i in range(10):
         plt.plot(years2, all_bc[i], label=ten_largest[i], marker=".")
@@ -138,16 +136,17 @@ def data_to_network(year, directed, edge_attr, percent, viz_bc):
     - Changes column names to more suitable ones.
 
     """
-
+    # fmt: off
     data = pd.read_csv(
-        "/Users/elsaollikainen/Desktop/hands_on_network_analysis/hands-on-network-analysis/data/mobility_by_year/"
-        + year
-        + ".csv",
+        "/Users/elsaollikainen/Desktop/hands_on_network_analysis/hands-on-network-analysis/data/mobility_by_year/" + # NOQA
+        year + ".csv",
         delimiter=",",
         encoding="latin-1",
     )
+    # fmt: on
 
-    # if year == '2020':     # 2020 the file structure is different than the other files, it has two rows less
+    # 2020 the file structure is different than the other files, it has two rows less
+    # if year == '2020':
     # N = 0
     # else:
     # N = 2
@@ -210,6 +209,7 @@ def data_to_network(year, directed, edge_attr, percent, viz_bc):
 def visualize_network(
     network, year, directed, viz_bc, df, edge_attr, netto, percent, node_colors=None
 ):
+    """Visualize the network."""
     fig = plt.figure(1, figsize=(10, 10))
     cmap = plt.get_cmap("Blues")
     vmin = -0.01
@@ -356,10 +356,9 @@ def main():
 
     year = "2020"  # Select the year to visualize
     directed = False  # Select if the network is directed or not
-    edge_attr = (
-        "Total"  # Select if using 'Total' or 'log' which is logarithm of Total values
-    )
-    viz_bc = False  # Select if you want to visualize node colors based on their betweenness centralities
+    edge_attr = "Total"  # Select if using 'Total' or 'log' which is logarithm of Total values
+    # Select if you want to visualize node colors based on their betweenness centralities
+    viz_bc = False
     """JOS viz_bc True, edge_attr = 'log', muuten ei toimi ! """
 
     percent = 0.01  # How many percent of the links are evaluated
@@ -372,9 +371,7 @@ def main():
     network, df = data_to_network(year, directed, edge_attr, percent, viz_bc)
 
     if max_st:
-        network = nx.algorithms.tree.mst.maximum_spanning_tree(
-            network, weight=edge_attr
-        )
+        network = nx.algorithms.tree.mst.maximum_spanning_tree(network, weight=edge_attr)
 
     if netto:
         network = netto_network(network, df, percent)
@@ -383,6 +380,7 @@ def main():
 
 
 def visualize_map(network, year, totnet):
+    """Visualizes the network on the map"""
     data = geopandas.read_file("./finland_map/finland/kunta4500k_2022Polygon.shp")
 
     for i in range(0, len(data)):
@@ -394,9 +392,7 @@ def visualize_map(network, year, totnet):
     pos = {}
 
     for i in range(0, len(data)):
-        node_info = data.loc[
-            [i], ["nimi", "namn", "centroid_lon", "centroid_lat"]
-        ].values.tolist()
+        node_info = data.loc[[i], ["nimi", "namn", "centroid_lon", "centroid_lat"]].values.tolist()
         name, namn, lon, lat = (
             node_info[0][0],
             node_info[0][1],
@@ -421,9 +417,7 @@ def visualize_map(network, year, totnet):
     fig = plt.figure(1)
     ax = fig.add_subplot(111)
     # ax = data["geometry"].boundary.plot(figsize=(20, 16))
-    ax = data["geometry"].plot(
-        edgecolor="#FFCC99", facecolor="#FFB266", figsize=(20, 16)
-    )
+    ax = data["geometry"].plot(edgecolor="#FFCC99", facecolor="#FFB266", figsize=(20, 16))
     nx.draw(
         network,
         pos=pos,
@@ -454,15 +448,14 @@ def get_node_colors_from_demographics(demographics, column, nodes):
 # %%
 
 
-def main():
+def main():  # NOQA
     """DEFINE THESE PARAMETERS TO MAKE DIFFERENT NETWORKS"""
 
     year = "2000"  # Select the year to visualize
     directed = False  # Select if the network is directed or not
-    edge_attr = (
-        "Total"  # Select if using 'Total' or 'log' which is logarithm of Total values
-    )
-    viz_bc = False  # Select if you want to visualize node colors based on their betweenness centralities
+    edge_attr = "Total"  # Select if using 'Total' or 'log' which is logarithm of Total values
+    # Select if you want to visualize node colors based on their betweenness centralities
+    viz_bc = False
     """JOS viz_bc True, edge_attr = 'log', muuten ei toimi ! """
 
     percent = 0.005  # How many percent of the links are evaluated
@@ -474,25 +467,19 @@ def main():
 
     network, df = data_to_network(year, directed, edge_attr, percent, viz_bc)
 
-    demographic_to_color_by = (
-        "0-30y"  # Name of demographic data column demographics.csv
-    )
+    demographic_to_color_by = "0-30y"  # Name of demographic data column demographics.csv
     # demographic_to_color_by = "log-Median income 2020"
     # demographic_to_color_by = "Percentage of males 2020"
     node_colors_dict = None
     if demographic_to_color_by is not None:
         demographics = pd.read_csv("data/demographics.csv")
-        demographics["log-Median income 2020"] = np.log(
-            demographics["Median income 2020"]
-        )
+        demographics["log-Median income 2020"] = np.log(demographics["Median income 2020"])
         node_colors_dict = get_node_colors_from_demographics(
             demographics, demographic_to_color_by, list(network.nodes())
         )
 
     if max_st:
-        network = nx.algorithms.tree.mst.maximum_spanning_tree(
-            network, weight=edge_attr
-        )
+        network = nx.algorithms.tree.mst.maximum_spanning_tree(network, weight=edge_attr)
 
     if netto:
         network = netto_network(network, df, percent)
@@ -509,7 +496,7 @@ def main():
         node_colors=node_colors_dict,
     )
 
-    if netto == True:
+    if netto:
         visualize_map(network, year, "netto")
     else:
         if edge_attr == "Total":

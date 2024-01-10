@@ -23,9 +23,7 @@ def visualize_network(network):
     pos = {}
 
     for i in range(0, len(data)):
-        node_info = data.loc[
-            [i], ["nimi", "namn", "centroid_lon", "centroid_lat"]
-        ].values.tolist()
+        node_info = data.loc[[i], ["nimi", "namn", "centroid_lon", "centroid_lat"]].values.tolist()
         name, namn, lon, lat = (
             node_info[0][0],
             node_info[0][1],
@@ -88,9 +86,7 @@ data
 # %% Forming and visualizing the network
 
 
-network = nx.from_pandas_edgelist(
-    data, source="Departure", target="Arrival", edge_attr="Total"
-)
+network = nx.from_pandas_edgelist(data, source="Departure", target="Arrival", edge_attr="Total")
 
 print("Number of nodes:", network.number_of_nodes())
 print("Number of edges:", network.number_of_edges())
@@ -108,7 +104,9 @@ amount = len(data) * 0.01
 amount = round(amount, 0)
 
 del df_sorted["index"]
-df_strongest = df_sorted.iloc[0 : int(amount), :]
+# fmt: off
+df_strongest = df_sorted.iloc[0: int(amount), :]
+# fmt: on
 
 network_strongest = nx.from_pandas_edgelist(
     df_strongest, source="Departure", target="Arrival", edge_attr="Total"

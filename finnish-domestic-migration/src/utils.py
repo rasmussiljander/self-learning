@@ -18,19 +18,13 @@ def get_top_municipalities_from_demopgraphics(
     """
     data_2019 = data[["Alue 2020", "Tiedot", "2019"]]
 
-    populations_index = (
-        data_2019["Tiedot"] == "Väkiluku"
-    )  # Fetch rows that contain population
+    populations_index = data_2019["Tiedot"] == "Väkiluku"  # Fetch rows that contain population
     populations = data_2019[populations_index]
 
     populations = populations.drop(columns="Tiedot")  # Cleaning and renaming cols
-    populations = populations.rename(
-        columns={"Alue 2020": "municipality", "2019": "population"}
-    )
+    populations = populations.rename(columns={"Alue 2020": "municipality", "2019": "population"})
 
-    populations["population"] = populations["population"].astype(
-        int
-    )  # type casting for sorting
+    populations["population"] = populations["population"].astype(int)  # type casting for sorting
     populations_sorted = populations.sort_values(
         by="population", ascending=False, ignore_index=True
     )
@@ -52,9 +46,7 @@ def get_top_municipalities_from_demopgraphics(
     rest_of_finland["municipality"] = "Rest of Finland"
     rest_of_finland.population.sum()
 
-    top_populations = pd.concat([top_populations, rest_of_finland]).reset_index(
-        drop=True
-    )
+    top_populations = pd.concat([top_populations, rest_of_finland]).reset_index(drop=True)
 
     return top_populations
 
@@ -92,6 +84,17 @@ def aggregate_counts(
 
 
 def aggregate_data(file_paths: list, municipalities_keep: pd.DataFrame):
+    """
+    Aggregate migration data from multiple files.
+    Municipalities_keep shows the number of muns to keep in the data.
+
+    Args:
+        file_paths (list): List of file paths to read the migration data from.
+        municipalities_keep (pd.DataFrame): DataFrame containing the municipalities to keep.
+
+    Returns:
+        pd.DataFrame: Aggregated migration data.
+    """
     migration_data = pd.DataFrame()
     for file in file_paths:
         filename = str(file).split("/")[-1]
@@ -103,9 +106,7 @@ def aggregate_data(file_paths: list, municipalities_keep: pd.DataFrame):
         arrival = aggregate_counts(data, municipalities_keep, column="Area of arrival")
         arrival.index = arrival.index.str.replace("Arrival - ", "")
 
-        departure = aggregate_counts(
-            data, municipalities_keep, column="Area of departure"
-        )
+        departure = aggregate_counts(data, municipalities_keep, column="Area of departure")
         departure.index = arrival.index.str.replace("Departure - ", "")
 
         df_mapping = {
@@ -135,6 +136,17 @@ def aggregate_data(file_paths: list, municipalities_keep: pd.DataFrame):
 
 
 def convert_to_ts(data: pd.DataFrame, sex_partition: str, migration_count_type: str):
+    """
+    Convert the given DataFrame into a time series format.
+
+    Args:
+        data (pd.DataFrame): The input DataFrame.
+        sex_partition (str): The partition based on sex.
+        migration_count_type (str): The type of migration count.
+
+    Returns:
+        pd.DataFrame: The converted time series DataFrame.
+    """
     cols_keep_mask = data.columns.str.contains(
         f"{migration_count_type}.*{sex_partition}", regex=True
     )
@@ -149,6 +161,16 @@ def convert_to_ts(data: pd.DataFrame, sex_partition: str, migration_count_type: 
 
 
 def normalize_by_population(data: pd.DataFrame, populations: pd.DataFrame):
+    """
+    Normalize the data by population.
+
+    Args:
+        data (pd.DataFrame): The data to be normalized.
+        populations (pd.DataFrame): The population data.
+
+    Returns:
+        pd.DataFrame: The normalized data.
+    """
     data_normalized = data.copy()
     for _, row in populations.iterrows():
         municip, pop = row
@@ -158,7 +180,10 @@ def normalize_by_population(data: pd.DataFrame, populations: pd.DataFrame):
 
 
 class PlotMaker:
+    """Helper class for creating plots"""
+
     def rank_plot(ranks: pd.DataFrame, n_rolling):
+        """Create a rank plot for the given `rank` data with `n_rolling` years rolling mean."""
         first_yr = ranks.iloc[n_rolling]
         first_yr.sort_values(ascending=False)
         y_labels = first_yr.sort_values(ascending=True).index
@@ -188,6 +213,7 @@ class PlotMaker:
         return fig
 
     def time_series_plot(data):
+        """Create a time series plot."""
         fig = plt.figure(figsize=(15, 8))
         sns.set(font_scale=1.2)
 

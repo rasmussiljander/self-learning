@@ -3,16 +3,8 @@ ignore-nested-functions = false
 ignore-setters = false
 ignore-module = true
 fail-under = 80
-exclude = ["setup.py",
-    "docs",
-    "build",
-    "allas.py",
-    "allas_aluepuntari.py",
-    "allas_asuntopuntari.py",
-    "allas_housing_company.py",
-    "*/tests/utils/redshift/",
-    "*/tests/utils/sqlalchemy_utils",
-    "*/tests/utils/test_fixture/",
-]
 verbose = 1
 quiet = false
+
+[tool.black]
+line-length = 99
