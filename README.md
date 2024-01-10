@@ -3,7 +3,22 @@
 This repository serves as a hub for miscellaneous self-learning projects related to data and machine learning. Each project is partitioned into its own directory in the repository root. With this, it is easier for me to see the topics that I have already explored and helps me understand what possible gaps I might still have in my understanding. 
 This repository is not designed to contain production-grade code or even be structured in a way that is conducive for easy clone-and-run code, but as mentioned, is meant for collecting all different projects and learning opportunities into one :)
 
-Below are short explanations of each project, but see also [Future Projects](#future-projects) for ideas and plans for future possible projects.
+
+To ease navigation, all projects are collected below in a table showing their theme and code availability. Projects are ordered by their year of completion.
+
+| Project Name | Theme| Language/method of delivery | Code in Repo| Year | 
+|-| -| -| -| - |
+|[2D Shape Recognition](https://github.com/rasmussiljander/self-learning/tree/main/2D_shape_recognition) | Image Classification | Jupyer Notebooks| Yes | 2024 |
+|[Capturing Discriminative Attributes From Language](#capturing-discriminative-attributes) | ML in NLP | Python| No | 2023 |
+|[Finnish Domestic Migration Analysis](https://github.com/rasmussiljander/self-learning/tree/main/finnish-domestic-migration) | Networks + Data-analysis| Python + Jupyter Notebooks| Yes | 2022 |
+|[Forecasting Food Orders](https://github.com/rasmussiljander/self-learning/tree/main/food_orders_forecasting) | Time-series Forecasting | Jupyter Notebooks| Yes | 2021 |
+|[cGANs for MRI modality conversion](#cgans-for-mri-modality-conversion) | Image-to-Image translation with DL | Python | No | 2021 |
+|[Bayesian Binomial-Logit models for basketball shot likelihoods](#modeling-nba-shooting-percentages) | Bayesian Data Analysis | R + Stan (Rmd) | No | 2020 |
+|[Herd Simulation](https://github.com/rasmussiljander/self-learning/tree/main/food_orders_forecasting) | Physics Animation | Python | Yes | 2019 |
+|[Student Register](https://github.com/rasmussiljander/self-learning/tree/main/student_register) | Beginner Project | C | Yes | 2019 |
+
+
+Below are short explanations of each project. See also [Future Projects](#future-projects) for ideas and plans for future possible projects.
 
 ### 2D Shape Recognition
 
