@@ -4,7 +4,7 @@ This repository serves as a hub for miscellaneous self-learning projects related
 This repository is not designed to contain production-grade code or even be structured in a way that is conducive for easy clone-and-run code, but as mentioned, is meant for collecting all different projects and learning opportunities into one :)
 
 
-To ease navigation, all projects are collected below in a table showing their theme and code availability. Projects are ordered by their year of completion.
+To ease navigation, all projects are collected below in a table showing their theme and code availability. Projects are ordered by their year of completion. The projects with private code is available for viewing upon request.
 
 | Project Name | Theme| Language/method of delivery | Code in Repo| Year | 
 |-| -| -| -| - |
@@ -14,6 +14,7 @@ To ease navigation, all projects are collected below in a table showing their th
 |[Finnish Domestic Migration Analysis](https://github.com/rasmussiljander/self-learning/tree/main/finnish-domestic-migration) | Networks + Data-analysis| Python + Jupyter Notebooks| Yes | 2022 |
 |[Forecasting Food Orders](https://github.com/rasmussiljander/self-learning/tree/main/food_orders_forecasting) | Time-series Forecasting | Jupyter Notebooks| Yes | 2021 |
 |[cGANs for MRI modality conversion](#cgans-for-mri-modality-conversion) | Image-to-Image translation with DL | Python | No | 2021 |
+|[GRI disclosure analysis of Finnish listed companies](#gri-disclosure-analysis-of-finnish-listed-companies) | NLP | Python | No | 2020 |
 |[[Bachelor's Thesis] Non-linear regression for autoantibody analysis in type 1 diabetes](#bachelors-thesis-2020-non-linear-regression-for-autoantibody-analysis-in-type-1-diabetes) | Non-linear Regression | Python + R | No | 2020 |
 |[Bayesian Binomial-Logit models for basketball shot likelihoods](#modeling-nba-shooting-percentages) | Bayesian Data Analysis | R + Stan (Rmd) | No | 2020 |
 |[Herd Simulation](https://github.com/rasmussiljander/self-learning/tree/main/food_orders_forecasting) | Physics Animation | Python | Yes | 2019 |
@@ -116,6 +117,20 @@ Project work a course Bayesian Data Analysis. Uses Bayesian probabilistic modeli
 6. Predictive performance assessment and sensitivity analysis
 
 Only the report (written with RMarkdown in RStudio) is included, found in the folder [reports/bayesian_basketball_model](https://github.com/self-learning/tree/main/reports/bayesian_basketball_model/). The source code available upon request.
+
+
+#### GRI Disclosure Analysis of Finnish Listed Companies
+
+A regex-based approach to analysing GRI (Global Reporting Initiative) reports. Project was done in collaboration for a Master's Thesis. From the project description:
+
+*The purpose of the software is to be able to evaluate, differentiate and point out differences in the quality of environmental reporting. In other words, we want to assign quantitative features for the quality of the model. This program does that, partitioning the test into sentences and subsequently searching for particular keywords, numerical measures, and time-to-time values. For further information, see Riku Siljander's Masters thesis Creating a Python-based content analysis software for the analysis of the quantity and quality of environmental reporting among Finnish listed companies.*
+
+The project is able to read a disclosure report, look for valuable insights, and return a quantitative measure for the quality of the report. This could be a valuable auditing tool to evaluate whether companies are fulfilling their GRI reporting responsibilities.
+
+- Thesis: [available as PDF](http://jultika.oulu.fi/files/nbnfioulu-202102191207.pdf)
+- Private Repo: [link](https://github.com/rasmussiljander/gri_disclosure_analysis)
+
+
 
 
 ### Github Actions
