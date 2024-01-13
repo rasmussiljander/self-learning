@@ -5,6 +5,9 @@ launch.json
 **/data/**
 **/*.zip
 **/models/**
-food_orders/**
 **/finland/kunta**
 **/finland/**wfs**
+
+# Venvs
+food_orders/**
+aws_tutorial/**
