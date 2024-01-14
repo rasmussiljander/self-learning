@@ -22,7 +22,7 @@ jobs:
 
     - name: Check notebook format with flake8
       run: |
-        nbqa flake8 **/*.ipynb --count --exit-zero --max-complexity=10 --statistics --ignore=E203 --max-line-length=99
+        nbqa flake8 **/*.ipynb --count --exit-zero --max-complexity=10 --statistics --ignore=W605,W503,E501,E203 --max-line-length=99
 
     - name: Check notebook format with black
       run: |
