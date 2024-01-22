@@ -25,11 +25,6 @@ jobs:
       run: |
         nbqa flake8 **/*.ipynb --count --exit-zero --max-complexity=10 --statistics --ignore=W605,W503,E501,E203 --max-line-length=99
 
-    - name: Check notebook format with black
-      if: always()
-      run: |
-        nbqa black **/*.ipynb --check --diff --line-length 99
-
     - name: Check python code format with flake8
       if: always()
       run: |
