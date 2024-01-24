@@ -8,7 +8,7 @@ To ease navigation, all projects are collected below in a table showing their th
 
 | Project Name | Theme| Language/method of delivery | Code in Repo| Year | 
 |-| -| -| -| - |
-|[2D Shape Recognition](https://github.com/rasmussiljander/self-learning/tree/main/2D_shape_recognition) | Image Classification | Jupyer Notebooks| Yes | 2024 |
+|[2D Shape Recognition](https://github.com/rasmussiljander/self-learning/tree/main/2D_shape_recognition) | Image Classification | Jupyter Notebooks| Yes | 2024 |
 |[[Master's Thesis] Extreme gradient boosting methods for housing market demand forecasting](#masters-thesis-2023-extreme-gradient-boosting-methods-for-housing-market-demand-forecasting) | Time series forecasting | Python | No | 2023 |
 |[Capturing Discriminative Attributes From Language](#capturing-discriminative-attributes) | ML in NLP | Python| No | 2023 |
 |[Finnish Domestic Migration Analysis](https://github.com/rasmussiljander/self-learning/tree/main/finnish-domestic-migration) | Networks + Data-analysis| Python + Jupyter Notebooks| Yes | 2022 |
