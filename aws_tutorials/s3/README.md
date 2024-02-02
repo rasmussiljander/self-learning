@@ -73,13 +73,10 @@ and you can verify the installed packages with `pip list`. The environment shoul
 
 `boto3` requires that you have your AWS Credentials setup before you can start using them. 
 This you can do by with the CLI command `aws configure`.
-This creates a prompt where you can input your AWS Secret Access Key and AWS Secret Access Key ID. 
+This creates a prompt where you can input a user AWS Secret Access Key and AWS Secret Access Key ID. 
 If you do not have them yet, you can create them in the AWS IAM Console (Google or Chat GPT has detailed instructions for that).
 
-
-
-
-
+You should have a user to create the keys from. I named mine `s3-tutorials`, but you can choose any name.
 
 ## Deploying the CDK 
 
