@@ -4,19 +4,21 @@
         {
             "Effect": "Allow",
             "Action": [
-                "iam:AttachRolePolicy",
-                "iam:AttachUserPolicy",
-                "iam:CreatePolicy",
-                "iam:CreatePolicyVersion",
                 "iam:CreateRole",
-                "iam:DeletePolicy",
                 "iam:DeleteRole",
-                "iam:DetachRolePolicy",
-                "iam:DetachUserPolicy",
-                "iam:GetPolicy",
-                "iam:GetPolicyVersion",
+                "iam:TagRole",
                 "iam:GetRole",
-                "iam:SetDefaultPolicyVersion"
+                "iam:CreatePolicy",
+                "iam:DeletePolicy",
+                "iam:GetPolicy",
+                "iam:AttachRolePolicy",
+                "iam:DeleteRolePolicy",
+                "iam:DetachRolePolicy",
+                "iam:AttachUserPolicy",
+                "iam:DetachUserPolicy",
+                "iam:GetPolicyVersion",
+                "iam:CreatePolicyVersion",
+                "iam:SetDefaultPolicyVersion",
             ],
             "Resource": "*"
         }
