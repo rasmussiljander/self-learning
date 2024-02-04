@@ -99,6 +99,8 @@ or
 cdk --version
 ```
 
+Note that if you dont already have the node package manager `npm` then you might need to install that as well. With MacOS, you can install this with brew: `brew install node`.
+
 2. Test your S3 Stack by running 
 
 ```
