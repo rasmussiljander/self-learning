@@ -1,0 +1,13 @@
+aws-cdk-lib>=2.0.0
+awscli
+black
+boto3
+flake8
+jupyter
+matplotlib
+nbqa
+numpy
+pandas
+seaborn
+statsmodels
+jupyter

@@ -1,0 +1,75 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateRole",
+                "iam:DeleteRole",
+                "iam:TagRole",
+                "iam:GetRole",
+                "iam:CreatePolicy",
+                "iam:DeletePolicy",
+                "iam:GetPolicy",
+                "iam:PutRolePolicy",
+                "iam:AttachRolePolicy",
+                "iam:DeleteRolePolicy",
+                "iam:DetachRolePolicy",
+                "iam:AttachUserPolicy",
+                "iam:DetachUserPolicy",
+                "iam:GetPolicyVersion",
+                "iam:CreatePolicyVersion",
+                "iam:SetDefaultPolicyVersion"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetParameter",
+                "ssm:DeleteParameter",
+                "ssm:PutParameter"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cloudformation:CreateChangeSet",
+                "cloudformation:DescribeChangeSet",
+                "cloudformation:DescribeStackEvents",
+                "cloudformation:ExecuteChangeSet",
+                "cloudformation:DescribeStacks",
+                "cloudformation:GetTemplate",
+                "cloudformation:ListStackResources",
+                "cloudformation:ListStacks",
+                "cloudformation:UpdateStack",
+                "cloudformation:CreateStack",
+                "cloudformation:DeleteStack"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecr:CreateRepository",
+                "ecr:DeleteRepository",
+                "ecr:PutLifecyclePolicy",
+                "ecr:SetRepositoryPolicy"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:PutBucketPolicy",
+                "s3:CreateBucket",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "*"
+        }
+    ]
+}

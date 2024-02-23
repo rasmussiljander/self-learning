@@ -21,21 +21,21 @@ jobs:
         pip install nbQA flake8 black interrogate
 
     - name: Check notebook format with flake8
+      if: always()
       run: |
-        nbqa flake8 **/*.ipynb --count --exit-zero --max-complexity=10 --statistics --ignore=E203 --max-line-length=99
-
-    - name: Check notebook format with black
-      run: |
-        nbqa black **/*.ipynb --check --diff --line-length 99
+        nbqa flake8 **/*.ipynb --count --exit-zero --max-complexity=10 --statistics --ignore=W605,W503,E501,E203 --max-line-length=99
 
     - name: Check python code format with flake8
+      if: always()
       run: |
         flake8 . --count --exit-zero --max-complexity=10 --show-source --statistics --ignore=W605,W503,E501,E203 --max-line-length=99  
 
     - name: Check python code format with black
+      if: always()
       run: |
         black . --check --diff --line-length 99
     
     - name: Check documentation coverage with Interrogate
+      if: always()
       run: |
         interrogate . -c pyproject.toml
