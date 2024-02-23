@@ -11,3 +11,7 @@ launch.json
 # Venvs
 food_orders/**
 aws_tutorial/**
+
+
+# CDK Context & Staging files
+cdk.out/

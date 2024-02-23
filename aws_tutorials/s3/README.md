@@ -1,4 +1,4 @@
-
+# S3 Infrastructure with CDK and SDK
 
 In this project I practice CDK and SDK methods for setting up AWS resources.
 
@@ -107,6 +107,7 @@ Note that if you dont already have the node package manager `npm` then you might
 cdk synth S3Stack -c config=XXX (CHECK LATER)
 ```
 
+Remember to run the command in the directory that contains the `app.py` file (`s3/cdk/` in the S3 tutorial case).
 The synth command creates an CloudFormation template (JSON/YAML) showing what your infrastructre will contain.
 It doesnt actually deploy the changes to AWS, but instead, creates the information file for the deploy. 
 With synth we can see if the changes are actually deployable or if they will break something.
@@ -114,7 +115,7 @@ With synth we can see if the changes are actually deployable or if they will bre
 3. If the Synth goes to plan, we can finally deploy our Stack:
 
 ```
-cdk deploy S3Stack -c config=XXX (CHECK LATER)
+cdk deploy S3Stack
 ```
 
 If we want to clean our infra, we can execute a cdk destroy command.
