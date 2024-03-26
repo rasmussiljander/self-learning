@@ -1,6 +1,7 @@
 """GUI class.
 
     Inits and implementations largely based on Exercise week 5, RobotWorld."""
+
 from PyQt5 import QtWidgets, QtCore, QtGui
 from vehicle_graphics_item import VehicleGraphicsItem
 
