@@ -32,6 +32,7 @@ def normalize_by_population(
     Returns:
         pd.DataFrame: The normalized DataFrame.
     """
+    df = df.copy()
     pop_vec = df[population_col]
 
     skip_norm_cols = [population_col, *skip_cols]
