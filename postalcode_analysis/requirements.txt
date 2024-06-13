@@ -13,6 +13,6 @@ polars==0.12.0
 pyarrow==14.0.2
 ydata-profiling
 # scipy==1.10.0
-# ipykernel==6.28.0
+ipykernel
 pyproj
 plotly

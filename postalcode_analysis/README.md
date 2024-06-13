@@ -41,7 +41,74 @@ The following tools and technologies will be used for this project:
 - Data Visualization: Matplotlib, Seaborn
 - Geospatial Analysis: GeoPandas, Folium
 - Statistical Modeling: Scikit-learn, Statsmodels
+add dep management with poetry
 
 ## Project Structure
 
 The project will be organized into the following directory structure:
+
+
+
+Write note somewhere: also found this project half-way through and used some of its implementations
+
+
+also instruct how to use poetry
+- python install 
+- brew install of poetry
+- project init
+- poetry install
+- profit
+
+
+
+pyenv install, etc
+
+
+https://pxdata.stat.fi/PxWeb/pxweb/en/Postinumeroalueittainen_avoin_tieto/Postinumeroalueittainen_avoin_tieto__uusin/paavo_pxt_12f7.px/
+
+I loaded only 2022 to begin with, maybe include other stuff later. I also did not load `A - X `-prefixed columns since I knew that I would no be needing them. I also pivoted it manually so that `Rows` were only `Postal Code` and rest were columnar information. This returned a table what had one row for each postal code area, showing its important columns. Then I saved it to a comma separated file without headings, and saved the name `paavo_2022.csv`.
+
+https://www.reaktor.com/articles/creating-an-interactive-geoplotting-demo-experiences-with-geopandas-and-plotly
+^somewhat similar to what i found here ^
+
+
+(install python 3.10.8)
+with e.g. pyenv install 3.10 
+
+(choice of python was arbitrary. I could have used e.g. 3.11 but i know that newer versions wouldn't necessary be better. plus it is stable for at least the next two years.
+
+https://devguide.python.org/versions/and 
+
+
+pyenv global
+
+
+if you have problems with pyenv this might help ensure that it starts up properly with MAC
+
+```
+echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init --path)"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+```
+
+
+Note that I did quivkly try using poetry for this project but since it was a bit tricky, especially with multiple projets in-repo, I just defaulted back to the simple old method of using venvs manually.
+
+
+# Create a virtual environment named "myenv"
+python3.10 -m venv postalcode_analysis
+
+# Activate the virtual environment
+source postalcode_analysis/bin/activate
+
+
+# Install packages 
+pip install -r requirements.txt
+
+
+
+You can use the API to load the data if you want: https://geo.stat.fi/geoserver/postialue/wfs
+
+https://pxdata.stat.fi/api1.html
+
+However API is not so good because you can only fetch 100 000 at a time
