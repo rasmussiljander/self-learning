@@ -8,3 +8,15 @@ launch.json
 food_orders/**
 **/finland/kunta**
 **/finland/**wfs**
+
+#venv-related files
+# Ignore bin, etc, iamges, lib, include, share, pyvenv.cfg, .Python, pip-selfcheck.json
+**/bin/**
+**/etc/**
+**/images/**
+**/lib/**
+**/include/**
+**/share/**
+**/pyvenv.cfg
+# **/.Python
+# **/pip-selfcheck.json
